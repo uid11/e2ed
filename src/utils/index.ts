@@ -38,6 +38,7 @@ export {getHash} from './getHash';
 export {getKeysCounter} from './getKeysCounter';
 export {getEquivalentHeadersNames, getHeadersFromHeaderEntries, getHeaderValue} from './headers';
 export {getContentJsonHeaders} from './http';
+export {getCheckedInputValue, getInputByValue} from './input';
 export {log} from './log';
 export {deepMerge, getEntries, getKeys, setReadonlyProperty} from './object';
 export {createPageObjectsFromMultiLocator} from './pageObjects';

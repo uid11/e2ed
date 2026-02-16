@@ -5,6 +5,7 @@ export {
   assertUrlMatchRoute,
 } from './asserts';
 export {blur} from './blur';
+export {check} from './check';
 export {clearCookies} from './clearCookies';
 export {clearInput} from './clearInput';
 export {click} from './click';
