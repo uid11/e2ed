@@ -97,7 +97,7 @@ if (IS_DEBUG || isUiMode) {
 }
 
 const useOptions: PlaywrightTestConfig['use'] = {
-  actionTimeout: Math.round(userlandPack.testIdleTimeout / 2),
+  actionTimeout: userlandPack.selectorTimeout,
   browserName: userlandPack.browserName,
   // eslint-disable-next-line @typescript-eslint/naming-convention
   bypassCSP: !userlandPack.enableCsp,

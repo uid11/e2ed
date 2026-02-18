@@ -76,11 +76,17 @@ export const getAssertionPromise = ({
 
   const assertionPromise: Promise<Expect> = RESOLVED_PROMISE.then(() => {
     if (isThenable(context.actualValue)) {
-      return addTimeoutToPromise(
-        context.actualValue as Promise<unknown>,
-        timeout,
-        timeoutError,
-      ).then(runAssertion);
+      return addTimeoutToPromise(context.actualValue as Promise<unknown>, timeout, timeoutError)
+        .then(runAssertion)
+        .catch((error: Error) => {
+          const ctx: Expect = {
+            actualValue: '<Thenable>',
+            description: context.description,
+            error,
+          };
+
+          return ctx;
+        });
     }
 
     return runAssertion(context.actualValue);
