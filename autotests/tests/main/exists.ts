@@ -89,6 +89,7 @@ test('exists', {meta: {testId: '1'}, testIdleTimeout: 12_000, testTimeout: 20_00
 
   const successfulResponsePromise = waitForResponse(
     ({statusCode}) => statusCode === OK_STATUS_CODE,
+    {includeNavigationRequest: true},
   );
 
   await pressKey('Enter');

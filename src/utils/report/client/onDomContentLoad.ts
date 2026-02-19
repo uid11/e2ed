@@ -1,10 +1,12 @@
 import {readJsonReportData as clientReadJsonReportData} from './readJsonReportData';
+import {setDomElementsToClientState as clientSetDomElementsToClientState} from './setDomElementsToClientState';
 
 import type {ReportClientState} from '../../../types/internal';
 
 declare const reportClientState: ReportClientState;
 
 const readJsonReportData = clientReadJsonReportData;
+const setDomElementsToClientState = clientSetDomElementsToClientState;
 
 /**
  * `DOMContentLoaded` handler for report page.
@@ -12,18 +14,7 @@ const readJsonReportData = clientReadJsonReportData;
  * @internal
  */
 export const onDomContentLoad = (): void => {
-  const e2edRightColumnContainer = document.getElementById('e2edRightColumnContainer') ?? undefined;
-
-  if (!e2edRightColumnContainer) {
-    // eslint-disable-next-line no-console
-    console.error(
-      'Cannot find right column container (id="e2edRightColumnContainer") after DOMContentLoaded.',
-    );
-  } else {
-    Object.assign<ReportClientState, Partial<ReportClientState>>(reportClientState, {
-      e2edRightColumnContainer,
-    });
-  }
+  setDomElementsToClientState({afterDomContentLoad: true});
 
   readJsonReportData(true);
 

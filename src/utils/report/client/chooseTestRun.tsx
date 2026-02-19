@@ -1,15 +1,15 @@
-/* eslint-disable no-console */
-
 import {assertValueIsDefined as clientAssertValueIsDefined} from './assertValueIsDefined';
 import {
   MaybeApiStatistics as clientMaybeApiStatistics,
   TestRunDetails as clientTestRunDetails,
 } from './render';
+import {setDomElementsToClientState as clientSetDomElementsToClientState} from './setDomElementsToClientState';
 
 import type {ReportClientState, RunHash} from '../../../types/internal';
 
 const assertValueIsDefined: typeof clientAssertValueIsDefined = clientAssertValueIsDefined;
 const MaybeApiStatistics = clientMaybeApiStatistics;
+const setDomElementsToClientState = clientSetDomElementsToClientState;
 const TestRunDetails = clientTestRunDetails;
 
 declare const jsx: JSX.Runtime;
@@ -20,15 +20,13 @@ declare const reportClientState: ReportClientState;
  * This base client function should not use scope variables (except other base functions).
  * @internal
  */
-// eslint-disable-next-line max-statements
+// eslint-disable-next-line complexity, max-statements
 export const chooseTestRun = (runHash: RunHash): void => {
+  setDomElementsToClientState();
+
   const {e2edRightColumnContainer} = reportClientState;
 
   if (!e2edRightColumnContainer) {
-    console.error(
-      'Cannot find right column container (id="e2edRightColumnContainer"). Probably page not yet completely loaded. Please try click again later',
-    );
-
     return;
   }
 
@@ -46,6 +44,7 @@ export const chooseTestRun = (runHash: RunHash): void => {
     e2edRightColumnContainer.firstElementChild as HTMLElement | null;
 
   if (!previousTestRunDetailsElement) {
+    // eslint-disable-next-line no-console
     console.error(
       'Cannot find first child element in right column container (id="e2edRightColumnContainer"). Probably page not yet completely loaded. Please try click again later',
     );
@@ -77,6 +76,7 @@ export const chooseTestRun = (runHash: RunHash): void => {
     const fullTestRun = fullTestRuns.find((testRun) => testRun.runHash === runHash);
 
     if (fullTestRun === undefined) {
+      // eslint-disable-next-line no-console
       console.error(
         `Cannot find test run with hash ${runHash} in JSON report data. Probably JSON report data for this test run not yet loaded. Please try click again later`,
       );
