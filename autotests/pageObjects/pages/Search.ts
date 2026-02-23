@@ -1,4 +1,5 @@
 import {MobilePage} from 'autotests/pageObjects';
+import {Input} from 'autotests/pageObjects/components';
 import {Search as SearchRoute} from 'autotests/routes/pageRoutes';
 import {setReadonlyProperty} from 'e2ed/utils';
 
@@ -15,6 +16,8 @@ export class Search extends MobilePage<CustomPageParams> {
    * The mobile device on which the page is open.
    */
   readonly mobileDevice = 'iphone' as const;
+
+  readonly searchInput: Input = new Input('q');
 
   /**
    * The search query of the page.

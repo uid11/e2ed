@@ -84,7 +84,7 @@
     "prebuild": "npm run build:clear",
     "build": "tsc; echo 'Compilation completed'",
     "postbuild": "npm run build:rename && npm run build:remove && npm run build:copy && npm run build:init",
-    "prebuild:rename": "mkdir --parents ./build/node_modules",
+    "prebuild:rename": "mkdir -p ./build/node_modules",
     "build:rename": "mv ./build/src ./build/node_modules/e2ed",
     "build:remove": "npm run build:remove:empty-d-ts && npm run build:remove:types-js",
     "build:remove:empty-d-ts": "find ./build/node_modules/e2ed/ -name *.d.ts -size 11c -exec rm {} \\;",
