@@ -56,4 +56,6 @@ export {
   sanitizeValue,
 } from './sanitizeHtml';
 /** @internal */
+export {setDomElementsToClientState} from './setDomElementsToClientState';
+/** @internal */
 export {setReadJsonReportDataObservers} from './setReadJsonReportDataObservers';
