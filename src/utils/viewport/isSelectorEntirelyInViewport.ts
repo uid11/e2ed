@@ -1,15 +1,20 @@
 import type {Selector} from '../../types/internal';
 
+import {expect as playwrightExpect} from '@playwright/test';
+
 /**
  * Returns `true`, if the selector is entirely in the viewport
  * (all selector points are in the viewport), and `false` otherwise.
  */
 export const isSelectorEntirelyInViewport = async (selector: Selector): Promise<boolean> => {
-  const htmlElementSelector = selector.createSelector('html');
+  try {
+    await playwrightExpect(selector.getPlaywrightLocator()).toBeInViewport({
+      ratio: 1,
+      timeout: 1,
+    });
 
-  const {height: clientHeight, width: clientWidth} = await htmlElementSelector.boundingClientRect;
-
-  const {bottom, left, right, top} = await selector.boundingClientRect;
-
-  return top >= 0 && bottom <= clientHeight && left >= 0 && right <= clientWidth;
+    return true;
+  } catch {
+    return false;
+  }
 };
