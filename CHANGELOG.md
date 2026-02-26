@@ -1,5 +1,37 @@
 # Changelog
 
+## [v0.21.6](https://github.com/joomcode/e2ed/tree/v0.21.6) (2026-02-26)
+
+[Full Changelog](https://github.com/joomcode/e2ed/compare/v0.21.5...v0.21.6)
+
+- [Merge pull request #133 from joomcode/chore/update-playwright](https://github.com/joomcode/e2ed/commit/82e3a14b91567680f45f69a5cbc32f0b7226be99) ([uid11](https://github.com/uid11))
+
+  chore: update Playwright to 1.58.2
+
+- [PRO-17991 chore: update Playwright to 1.58.2](https://github.com/joomcode/e2ed/commit/bfa3f77e5eaa49335bbcfb93c869b1602159ec67) ([uid11](https://github.com/uid11))
+- [Merge pull request #131 from joomcode/fix/autoopen-first-error-in-report](https://github.com/joomcode/e2ed/commit/3372d8674cfe39f7bf55c7f413de9b4e77a5ca1f) ([uid11](https://github.com/uid11))
+
+  fix: automatic open the test with error from last retry in HTML report
+
+- [fix: automatic open the test with error from last retry in HTML report](https://github.com/joomcode/e2ed/commit/ce031332101d8fff3c5d8580c3584cb789c648ac) ([uid11](https://github.com/uid11))
+
+  fix: internal `exists` packages test
+
+- [Merge pull request #132 from joomcode/pro/PRO-14499-is-in-viewport-checks](https://github.com/joomcode/e2ed/commit/5df2daaae216706d1c7b35d3a8024f665c3a0461) ([Igor Savin](https://github.com/Igor Savin))
+
+  isSelectorInViewport and isSelectorEntirelyInViewport
+
+- [Fixes for build and run project on macOS.](https://github.com/joomcode/e2ed/commit/ee9ac335f92c3d087b73ec27c1722f583123fa9d) ([Igor Savin](https://github.com/Igor Savin))
+
+  Added `isSelectorInViewport` and `isSelectorEntirelyInViewport` tests; refactor their implementations to use Playwright
+
+- [Merge pull request #130 from joomcode/feat/add-check-action](https://github.com/joomcode/e2ed/commit/34a61f0df112d78e2d05d9e0c57077c897d074d7) ([uid11](https://github.com/uid11))
+
+  feat: add `check` action and `getCheckedInputValue`/`getInputByValue` utils
+
+- [fix: correct handling of rejections from thenable value in `expect`](https://github.com/joomcode/e2ed/commit/a4b81bf7066a775848d66ee3916799306551f2b9) ([uid11](https://github.com/uid11))
+- [PRO-17748 feat: add `check` action and `getCheckedInputValue`/`getInputByValue` utils](https://github.com/joomcode/e2ed/commit/471eada2e2fc31d9468685b21c88d3046cefe920) ([uid11](https://github.com/uid11))
+
 ## [v0.21.5](https://github.com/joomcode/e2ed/tree/v0.21.5) (2026-01-28)
 
 [Full Changelog](https://github.com/joomcode/e2ed/compare/v0.21.4...v0.21.5)
